@@ -41,7 +41,7 @@ pipeline {
         stage('Build container image') {
             steps {
                 container('kaniko') {
-                    sh('/kaniko/executor -f ./Dockerfile -c . --insecure --skip-tls-verify --cache=true --destination=docker.io/oscmedgon/dso-demo')
+                    sh('/kaniko/executor -f ./Dockerfile -c . --insecure --skip-tls-verify --force --cache=true --destination=docker.io/oscmedgon/dso-demo')
                 }
             }
         }
