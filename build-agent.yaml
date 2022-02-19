@@ -23,6 +23,16 @@ spec:
           name: docker-sock
         - mountPath: /tmp/trivycache/
           name: trivycache
+    - name: kaniko
+      image: gcr.io/kaniko-project/executor:v1.7.0
+      imagePullPolicy: Always
+      command:
+        - sleep
+      args:
+        - 99d
+      volumeMounts:
+        - name: jenkins-doker-cfg
+          mountPath: /kaniko/.docker
     - name: trufflehog
       image: rmkanda/trufflehog
       command:
@@ -40,6 +50,14 @@ spec:
     - name: docker-sock
       hostPath:
         path: /var/run
+    - name: jenkins-doker-cfg
+      projected:
+        sources:
+          - secret:
+              name: regcred
+              items:
+                - key: .dockerconfigjson
+                  path: config.json
     - name: trivycache
       hostPath:
         path: /tmp/trivycache/
