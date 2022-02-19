@@ -38,7 +38,7 @@ spec:
       command:
         - cat
       tty: true
-    - name: license_finder
+    - name: license-finder
       image: licensefinder/license_finder
       command:
         - cat

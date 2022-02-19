@@ -43,7 +43,7 @@ pipeline {
         }
         stage('OSS License Checker') {
           steps {
-            container('license_finder') {
+            container('license-finder') {
               sh('ls -la')
               sh('''#!/bin/bash --login
                       /bin/bash --login
