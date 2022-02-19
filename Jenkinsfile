@@ -30,7 +30,7 @@ pipeline {
         stage('SCA Software Composition Analysis') {
           steps {
             container('maven') {
-              catchError(buildResult: 'SUCCESS', stageResult: 'ERROR') {
+              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 sh('mvn org.owasp:dependency-check-maven:check')
               }
             }
