@@ -30,14 +30,14 @@ pipeline {
         stage('SCA Software Composition Analysis') {
           steps {
             container('maven') {
-              sh('mvn org.owasp:dependency-check-maven:check')
-//              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-//              }
+              catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                sh('mvn org.owasp:dependency-check-maven:check')
+              }
             }
           }
           post {
             always {
-              archiveArtifacts allowEmptyArchive: true, artifacts: 'target/dependency-check-report.html', fingerprint: true, onlyIfSuccessful: false
+              archiveArtifacts allowEmptyArchive: true, artifacts: 'target/dependency-check-report.html', fingerprint: true, onlyIfSuccessful: true
             }
           }
         }
