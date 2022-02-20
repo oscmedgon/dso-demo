@@ -24,6 +24,12 @@
     :versions: []
     :when: 2020-05-31 15:27:11.706253000 Z
 - - :permit
+  - New BSD
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-02-20 15:28:30.302764000 Z
+- - :permit
   - EDL 1.0
   - :who: 
     :why: 
@@ -48,13 +54,6 @@
     :why: 
     :versions:
       - 1.2.10
-    :when: 2022-02-20 15:28:30.302764000 Z
-- - :approve
-  - asm
-  - :who:
-    :why:
-    :versions:
-      - 9.1
     :when: 2022-02-20 15:28:30.302764000 Z
 - - :approve
   - jakarta.xml.bind-api
