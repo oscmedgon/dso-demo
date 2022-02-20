@@ -67,6 +67,18 @@ pipeline {
             }
           }
         }
+        stage('Project SAST') {
+          steps {
+            container('sast-scan') {
+              sh('scan --type java,deepscan --build')
+            }
+          }
+          post {
+            success {
+              archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/*', fingerprint: true, onlyIfSuccessful: true
+            }
+          }
+        }
       }
     }
     stage('Package') {

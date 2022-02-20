@@ -38,6 +38,11 @@ spec:
       command:
         - cat
       tty: true
+    - name: sast-scan
+      image: shiftleft/sast-scan
+      command:
+        - cat
+      tty: true
     - name: license-finder
       image: licensefinder/license_finder
       command:
